@@ -9,6 +9,11 @@ import string
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
+hexdigits = string.hexdigits
+digits = string.digits
+lower = string.ascii_lowercase
+upper = string.ascii_uppercase
+
 
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
@@ -23,6 +28,11 @@ def decode(digits, base):
     # ...
     # TODO: Decode digits from any base (2 up to 36)
     # ...
+    if base == 2:
+
+
+    if base == 16:
+
 
 
 def encode(number, base):
