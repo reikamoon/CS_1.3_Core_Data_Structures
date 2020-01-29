@@ -13,6 +13,7 @@ hexdigits = string.hexdigits
 digits = string.digits
 lower = string.ascii_lowercase
 upper = string.ascii_uppercase
+numbers = string.digits + string.ascii_uppercase
 
 
 def decode(digits, base):
@@ -29,13 +30,28 @@ def decode(digits, base):
     # TODO: Decode digits from any base (2 up to 36)
     # ...
     if base == 2:
-
-
+        decimal, i = 0, 0
+        for digit in reversed(digits):
+            decimal += numbers.find(digit) * pow(2, i)
+            i += 1
+        return decimal
     if base == 16:
+        decimal, i = 0, 0
+        for digit in reversed(digits):
+            decimal += numbers.find(digit) * pow(16, i)
+            i += 1
+        return decimal
+
+    else:
+        decimal, i = 0, 0
+        for digit in reversed(digits):
+            decimal += numbers.find(digit) * pow(base, i)
+            i += 1
+        return decimal
 
 
 
-def encode(number, base):
+def encode(number, base, result=""):
     """Encode given number in base 10 to digits in given base.
     number: int -- integer representation of number (in base 10)
     base: int -- base to convert to
@@ -50,7 +66,38 @@ def encode(number, base):
     # ...
     # TODO: Encode number in any base (2 up to 36)
     # ...
+    if base == 2:
+        if number > 1:
+            result += str(number % 2)
+            result = encode(number // 2, 2, result)
+        return result
 
+    #survivors are the remainder
+    if base == 16:
+        num, survivor = divmod(number, 16)
+        survivors = []
+        survivors.append(survivor)
+        while num > 0:
+            num, survivor = divmod(num, 16)
+            survivors.append(survivor)
+
+        casual_ties = ""
+        for survivor in reversed(survivors):
+            casual_ties += numbers[survivor]
+        return casual_ties
+    else:
+        print('nothing you did it congrats')
+        num, survivor = divmod(number, base)
+        survivors = []
+        survivors.append(survivor)
+        while num > 0:
+            num, survivor = divmod(num, base)
+            survivors.append(survivor)
+
+        casual_ties = ""
+        for survivor in reversed(survivors):
+            casual_ties += numbers[survivor]
+        return casual_ties
 
 def convert(digits, base1, base2):
     """Convert given digits in base1 to digits in base2.
@@ -83,9 +130,12 @@ def main():
         result = convert(digits, base1, base2)
         print('{} in base {} is {} in base {}'.format(digits, base1, result, base2))
     else:
-        print('Usage: {} digits base1 base2'.format(sys.argv[0]))
-        print('Converts digits from base1 to base2')
-
+        # print('Usage: {} digits base1 base2'.format(sys.argv[0]))
+        # print('Converts digits from base1 to base2')
+        # print(decode('1011100', 2))
+        # print(decode('C', 16))
+        # print(encode(92, 2))
+        print(encode(15435287246, 36))
 
 if __name__ == '__main__':
     main()
