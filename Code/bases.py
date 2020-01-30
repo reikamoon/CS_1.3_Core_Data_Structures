@@ -116,7 +116,7 @@ def convert(digits, base1, base2):
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
-
+    return encode(decode(digits, base1), base2)
 
 def main():
     """Read command-line arguments and convert given digits between bases."""
@@ -135,7 +135,6 @@ def main():
         # print(decode('1011100', 2))
         # print(decode('C', 16))
         # print(encode(92, 2))
-        print(encode(15435287246, 36))
 
 if __name__ == '__main__':
     main()
