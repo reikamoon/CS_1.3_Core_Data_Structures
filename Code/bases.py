@@ -73,6 +73,7 @@ def encode(number, base, result=""):
         return result
 
     #survivors are the remainder
+    #casual_ties is the list to add up remainders
     if base == 16:
         num, survivor = divmod(number, 16)
         survivors = []
