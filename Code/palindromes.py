@@ -26,9 +26,9 @@ def is_palindrome_iterative(text):
     text = text.lower()
     i, j = 0, len(text) - 1
     while i < j:
-        while != text[i].isalnum():
+        while not text[i].isalnum():
             i += 1
-        while != text[j].isalnum():
+        while not text[j].isalnum():
             j -= 1
         if text[i] != text[j]:
             return False
