@@ -1,11 +1,11 @@
 #!python
-
 import string
+import random
 # Hint: Use these string constants to ignore capitalization and/or punctuation
 # string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
 # string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
-
+input = 'palindrome'
 
 def is_palindrome(text):
     """A string of characters is a palindrome if it reads the same forwards and
@@ -59,6 +59,13 @@ def is_palindrome_recursive(text, left=None, right=None):
     else:
         return is_palindrome_recursive(text, left + 1, right - 1)
 
+def anagram(input):
+    anagram = ""
+    for i in range(len(input)):
+        pos = random.randint(0, len(input)-1)
+        anagram += input[pos]
+        input = input[:pos] + input[pos+1:]
+    print(anagram)
 
 
 def main():
@@ -77,3 +84,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    anagram(input)

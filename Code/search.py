@@ -59,6 +59,8 @@ def binary_search_iterative(array, item):
         elif item > array[index]:
             left = index
     return index
+    #The time complexity for this function would be O(log n) as any algorithm which multiplies by 1/2.
+    # The best case would be O(1)
 
 def binary_search_recursive(array, item, left=None, right=None):
     # TODO: implement binary search recursively here
@@ -81,3 +83,5 @@ def binary_search_recursive(array, item, left=None, right=None):
         return binary_search_recursive(array, item, left=left, right =index)
     elif item > array[index]:
         return binary_search_recursive(array, item, left = index, right=right)
+    #The time complexity for this would be O(log n)
+    #The best case complexity would be O(1).
