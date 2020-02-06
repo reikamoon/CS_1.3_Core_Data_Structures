@@ -83,5 +83,5 @@ def binary_search_recursive(array, item, left=None, right=None):
         return binary_search_recursive(array, item, left=left, right =index)
     elif item > array[index]:
         return binary_search_recursive(array, item, left = index, right=right)
-    #The time complexity for this would be O(log n)
+    #The time complexity for this would be O(log n).
     #The best case complexity would be O(1).

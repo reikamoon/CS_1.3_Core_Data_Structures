@@ -145,7 +145,8 @@ class LinkedList(object):
         Worst case running time: ??? under what conditions? [TODO]"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        pass
+        node = self.find(lambda x: x == item, False)
+        node.data = new_item
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
