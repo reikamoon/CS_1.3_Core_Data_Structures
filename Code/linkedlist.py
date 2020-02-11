@@ -1,5 +1,4 @@
 #!python
-
 class Node(object):
 
     def __init__(self, data):
@@ -23,6 +22,7 @@ class LinkedList(object):
         if iterable is not None:
             for item in iterable:
                 self.append(item)
+
 
     def __str__(self):
         """Return a formatted string representation of this linked list."""
@@ -70,6 +70,10 @@ class LinkedList(object):
         # Now node_count contains the number of nodes
         return node_count
 
+        return self.size
+
+        """Time Complexity:O(n)"""
+
     def get_at_index(self, index):
         """Return the item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
@@ -79,6 +83,11 @@ class LinkedList(object):
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return its data
+        while current_index < index:
+            current_node = current_node.next
+            current_index += 1
+        return current_node
+        """Time Complexity: O(i)"""
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
@@ -89,6 +98,14 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
+        i = 0
+        while i < index - 1:
+            i += 1
+            current_node = current_node.next
+            node = Node(item)
+            node.next = current_node.next
+            current_node.next = node
+        """Time complexity: O(i)"""
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
@@ -105,6 +122,11 @@ class LinkedList(object):
         # Update tail to new node regardless
         self.tail = new_node
 
+        #update size
+        self.size += 1
+
+        """Time Complexity:O(1)"""
+
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
         Best and worst case running time: ??? under what conditions? [TODO]"""
@@ -119,6 +141,11 @@ class LinkedList(object):
             new_node.next = self.head
         # Update head to new node regardless
         self.head = new_node
+
+        #update size
+        self.size += 1
+
+        """Time Complexity:O(1)"""
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -193,6 +220,7 @@ class LinkedList(object):
         else:
             # Otherwise raise an error to tell the user that delete has failed
             raise ValueError('Item not found: {}'.format(item))
+
 
 
 def test_linked_list():
