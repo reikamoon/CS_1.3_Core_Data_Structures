@@ -68,8 +68,7 @@ class LinkedList(object):
             # Skip to the next node
             node = node.next
         # Now node_count contains the number of nodes
-        return node_count
-
+        # return node_count
         return self.size
 
         """Time Complexity:O(n)"""
@@ -83,10 +82,16 @@ class LinkedList(object):
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return its data
-        while current_index < index:
+        if not (0 <= index < self.size):
+            raise ValueError('List index out of range: {}'.format(index))
+        i = 0
+        current_node = self.head
+        if index > self.length():
+            raise ValueError("Index out of range")
+        while i < index:
+            i += 1
             current_node = current_node.next
-            current_index += 1
-        return current_node
+        return current_node.data
         """Time Complexity: O(i)"""
 
     def insert_at_index(self, index, item):
@@ -95,13 +100,30 @@ class LinkedList(object):
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]"""
         # Check if the given index is out of range and if so raise an error
-        if not (0 <= index <= self.size):
+        if != (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
-        i = 0
-        while i < index - 1:
-            i += 1
-            current_node = current_node.next
+         if != (0 <= index <= self.size):
+            raise ValueError('List index out of range: {}'.format(index))
+        self.size += 1
+        if index == 0:
+            node = Node(item)
+            node.next = self.head
+            self.head = node
+            if self.length() == 1:
+                self.tail = node
+        elif index == self.length() - 1:
+            current_node = self.tail
+            node = Node(item)
+            node.next = current_node.next
+            current_node.next = node
+            self.tail = node
+        else:
+            current_node = self.head
+            i = 0
+            while i < index - 1:
+                i += 1
+                current_node = current_node.next
             node = Node(item)
             node.next = current_node.next
             current_node.next = node
