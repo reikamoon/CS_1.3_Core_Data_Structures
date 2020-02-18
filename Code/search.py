@@ -72,7 +72,7 @@ def binary_search_recursive(array, item, left=None, right=None):
         index = (len(array) + left) // 2
     elif right:
         index = right // 2
-    elif != (left or right):
+    elif not (left or right):
         index = len(array) // 2
 
     if index == left or index == right:

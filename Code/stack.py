@@ -93,7 +93,7 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(1) – Why? [TODO]"""
+        Running time: O(1) – Why? To append an item to the top of the stack takes one process. [TODO]"""
         # TODO: Insert given item
         self.list.append(item)
 
@@ -110,7 +110,7 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – Why? To remove an item from the stack, it requires one process.[TODO]"""
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Stack has nothing in it!")

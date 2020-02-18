@@ -22,7 +22,7 @@ class LinkedQueue(object):
     def is_empty(self):
         """Return True if this queue is empty, or False otherwise."""
         # TODO: Check if empty
-         if self.length() == 0:
+        if self.length() == 0:
             return True
         return False
 
@@ -35,7 +35,7 @@ class LinkedQueue(object):
         """Insert the given item at the back of this queue.
         Running time: O(1) – Why? It only takes one process to add to a list. [TODO]"""
         # TODO: Insert given item
-          self.list.append(item)
+        self.list.append(item)
 
 
     def front(self):
@@ -52,7 +52,7 @@ class LinkedQueue(object):
         or raise ValueError if this queue is empty.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return front item, if any
-         if self.is_empty():
+        if self.is_empty():
             raise ValueError("Sorry, Queue is empty!")
         data = self.list.head.data
         self.list.delete(self.front())
@@ -78,7 +78,7 @@ class ArrayQueue(object):
     def is_empty(self):
         """Return True if this queue is empty, or False otherwise."""
         # TODO: Check if empty
-         if self.length() == 0:
+        if self.length() == 0:
             return True
         return False
 
@@ -107,7 +107,7 @@ class ArrayQueue(object):
         or raise ValueError if this queue is empty.
         Running time: O(n) – Why? When you pop something, it has to move the indexes.[TODO]"""
         # TODO: Remove and return front item, if any
-         if self.is_empty():
+        if self.is_empty():
             raise ValueError("Queue is empty")
         data = self.list[0]
         self.list.pop(0)

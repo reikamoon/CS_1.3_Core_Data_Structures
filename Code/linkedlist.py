@@ -100,10 +100,10 @@ class LinkedList(object):
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]"""
         # Check if the given index is out of range and if so raise an error
-        if != (0 <= index <= self.size):
+        if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
-         if != (0 <= index <= self.size):
+        if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         self.size += 1
         if index == 0:
@@ -219,6 +219,7 @@ class LinkedList(object):
                 node = node.next
         # Check if we found the given item or we never did and reached the tail
         if found:
+            self.size -= 1
             # Check if we found a node in the middle of this linked list
             if node is not self.head and node is not self.tail:
                 # Update the previous node to skip around the found node
