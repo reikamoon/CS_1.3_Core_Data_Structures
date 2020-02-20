@@ -13,7 +13,7 @@ hexdigits = string.hexdigits
 digits = string.digits
 lower = string.ascii_lowercase
 upper = string.ascii_uppercase
-numbers = string.digits + string.ascii_uppercase
+numbers = string.digits + string.ascii_lowercase
 
 
 def decode(digits, base):
@@ -54,39 +54,39 @@ def encode(number, base, result=""):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
-    if base == 2:
-        if number > 1:
-            result += str(number % 2)
-            result = encode(number // 2, 2, result)
-        return result
+    # if base == 2:
+    #     if number > 1:
+    #         result += str(number % 2)
+    #         result = encode(number // 2, 2, result)
+    #     return result
 
     #survivors are the remainder
     #casual_ties is the list to add up remainders
-    if base == 16:
-        num, survivor = divmod(number, 16)
-        survivors = []
+    # if base == 16:
+    #     num, survivor = divmod(number, 16)
+    #     survivors = []
+    #     survivors.append(survivor)
+    #     while num > 0:
+    #         num, survivor = divmod(num, 16)
+    #         survivors.append(survivor)
+    #
+    #     casual_ties = ""
+    #     for survivor in reversed(survivors):
+    #         casual_ties += numbers[survivor]
+    #     return casual_ties
+    # else:
+    print('nothing you did it congrats')
+    num, survivor = divmod(number, base)
+    survivors = []
+    survivors.append(survivor)
+    while num > 0:
+        num, survivor = divmod(num, base)
         survivors.append(survivor)
-        while num > 0:
-            num, survivor = divmod(num, 16)
-            survivors.append(survivor)
 
-        casual_ties = ""
-        for survivor in reversed(survivors):
-            casual_ties += numbers[survivor]
-        return casual_ties
-    else:
-        print('nothing you did it congrats')
-        num, survivor = divmod(number, base)
-        survivors = []
-        survivors.append(survivor)
-        while num > 0:
-            num, survivor = divmod(num, base)
-            survivors.append(survivor)
-
-        casual_ties = ""
-        for survivor in reversed(survivors):
-            casual_ties += numbers[survivor]
-        return casual_ties
+    casual_ties = ""
+    for survivor in reversed(survivors):
+        casual_ties += numbers[survivor]
+    return casual_ties
 
 def convert(digits, base1, base2):
     """Convert given digits in base1 to digits in base2.
@@ -116,6 +116,7 @@ def main():
         # print(decode('1011100', 2))
         # print(decode('C', 16))
         # print(encode(92, 2))
+        pass
 
 if __name__ == '__main__':
     main()
