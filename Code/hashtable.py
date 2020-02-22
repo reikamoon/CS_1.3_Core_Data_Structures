@@ -152,7 +152,7 @@ class HashTable(object):
         """Resize this hash table's buckets and rehash all key-value entries.
         Should be called automatically when load factor exceeds a threshold
         such as 0.75 after an insertion (when set is called with a new key).
-        Best and worst case running time: ??? under what conditions? [TODO]
+        Best and worst case running time: O(l) under what conditions? The process has to go through the entire table and resize.[TODO]
         Best and worst case space usage: ??? what uses this memory? [TODO]"""
         # If unspecified, choose new size dynamically based on current size
         if new_size is None:
