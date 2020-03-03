@@ -10,7 +10,7 @@ class Set:
         '''Check what items are in the set'''
         return self.set.contains(item)
 
-        # Time complexity: O(n)
+        # Time complexity: O(log n)
 
     def add(self, item):
         '''Add an item to a set'''
@@ -18,20 +18,20 @@ class Set:
             self.set.insert(item)
             self.size += 1
 
-        # Time Complexity: O(n)
+        # Time Complexity: O(log n)
 
     def remove(self, item):
         '''Remove item from a set'''
         return self.set.delete(item)
 
-        # Time Complexity: O(n)
+        # Time Complexity: O(log n)
 
     def union(self, other_set):
         '''Merges sets together, but removes duplicates'''
         unionset = Set(self.set.items_in_order() + other_set.set.items_in_order())
         return unionset
 
-        # Time Complexity: O(n)
+        # Time Complexity: O(m + n)
 
     def intersection(self, other_set):
         '''Finds the most common elements in both sets'''
@@ -56,7 +56,7 @@ class Set:
         differenceset = Set(differenceitems)
         return differenceset
 
-        # Time Complexity: O(n)
+        # Time Complexity: O(m + n)
 
     def is_subset(self, other_set):
         '''Checks if a set is a subset of another set'''
@@ -65,7 +65,7 @@ class Set:
                 return False
         return True
 
-        # Time Complexity: O(n)
+        # Time Complexity: O(m + n)
 
 
 

@@ -10,3 +10,9 @@ def test_add():
     myset = Set(set1)
     myset.add('Chicken')
     assert myset == ['Dog','Cat','Bird','Chicken']
+
+def test_remove():
+    pass
+
+def test_union():
+    pass
