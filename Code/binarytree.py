@@ -93,7 +93,10 @@ class BinarySearchTree(object):
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # Return True if a node was found, or False
-        return node is not None
+        if node != None:
+            return True
+        else:
+            return False
 
     def search(self, item):
         """Return an item in this binary search tree matching the given item,
@@ -251,7 +254,7 @@ class BinarySearchTree(object):
         # implement new helper methods for subtasks of the more complex cases
         node = self._find_node_recursive(item, self.root)
         parent = self._find_parent_node_recursive(item, self.root)
-        children = findnode.get_children()
+        children = node.get_children()
         successor = node
 
         if node == None:
