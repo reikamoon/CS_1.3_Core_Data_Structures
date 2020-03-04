@@ -252,13 +252,14 @@ class BinarySearchTree(object):
         # TODO: Use helper methods and break this algorithm down into 3 cases
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
-        node = self._find_node_recursive(item, self.root)
         parent = self._find_parent_node_recursive(item, self.root)
-        children = node.get_children()
+        start = parent if parent is not None else self.root
+        node = self._find_node_recursive(item, start)
         successor = node
 
         if node == None:
             raise ValueError("Not Found")
+        children = node.get_children()
 
         if children == 0:
             if node.data > parent.data:

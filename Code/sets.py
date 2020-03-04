@@ -6,6 +6,9 @@ class Set:
         for item in items:
             self.add(item)
 
+    def __eq__(self, other):
+        return self.set.items_in_order() == other.set.items_in_order()
+
     def contains(self, item):
         '''Check what items are in the set'''
         return self.set.contains(item)
