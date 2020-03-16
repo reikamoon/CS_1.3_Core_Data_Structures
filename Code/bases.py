@@ -7,7 +7,7 @@ import string
 # string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
 # string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
-# string.printable is digits + ascii_letters + punctuation + whitespace
+
 
 hexdigits = string.hexdigits
 digits = string.digits
